@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>LANDING PAGE</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap core CSS -->
@@ -20,190 +20,194 @@
 
   <!-- Start your project here-->
   <main id="landing-page" class="container-fluid">
-    <div id="logoJumbo" class="jumbotron text-center m-0"> LOGO </div>
-    <nav class="navbar navbar-expand-lg navbar-light amber accent-2 sticky-top">
 
-      <!-- Navbar brand -->
-      <a class="navbar-brand" href="#">Navbar</a>
+    <div id="logoJumbo" class="jumbotron text-center m-0"> BOOTLOOT </div>
 
-      <!-- Collapse button -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Collapsible content -->
-      <div class="collapse navbar-collapse" id="basicExampleNav">
-
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-
-        </ul>
-        <!-- Links -->
-
-        <form class="form-inline">
-          <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          </div>
-        </form>
-      </div>
-    <!-- Collapsible content -->
-
-    </nav>
-    <!--/.Navbar-->
+    <!-- NAVBAR -->
+      <?php require_once("../partials/navbar.php") ?>
+    <!-- /NAVBAR -->
 
 <!-- ======================================================================= -->
 
     <section class="row"> <!-- landing page section -->
-      <div class="col-12">
-        <div id="bgJumbo" class="jumbotron p-0 m-0">
-          <!-- Card image -->
-          <div class="view overlay rounded-top">
-            
-            <a href="#">
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
+
+      <div id="bgJumbo1" class="jumbotron p-0 m-0">
+        <div id="jumboText1-container">
+          <span id="comfortText" class="bgJumbo1Text"> Comfort </span>
+          <span class="bgJumbo1Text"> and Style. </span>
+          <p class="bgJumbo1Text"> UNITE.</p>
         </div>
       </div>
+
+      <!-- <div class="col-12"> -->
+
+        <div id="bgJumbo2" class="jumbotron p-0 m-0">
+
+          <div id="jumboText2-container">
+            <span id="comfortText" class="bgJumbo1Text"> Comfort </span>
+            <span class="bgJumbo1Text"> and Style. </span>
+            <p class="bgJumbo1Text"> UNITE.</p>
+          </div>
+          
+          <span id="mensPage"> Mens </span>
+          <span id="womensPage"> Womens </span>
+
+        </div>
+          
+      <!-- </div> -->
+
     </section> <!-- landing page section -->
 
 <!-- ======================================================================= -->
 
-    <h3> Featured Items </h3>
-    <section class="row"> <!-- featured items section -->
+    <section id="feature-page" class="row"> <!-- featured items section -->
 
-        <div class="col-4">
-          <!-- Card Wider -->
-          <div class="card card-cascade wider">
+      <div class="row"> 
 
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
-              <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
+        <div class="col-12">
 
-            <!-- Card content -->
-            <div class="card-body card-body-cascade text-center">
+          <h3 class="jumbotron text-center m-0"> Featured Products </h3>
+          <div id="bgJumboFeature" class="jumbotron p-0 mt-5 col-12">
 
-              <!-- Title -->
-              <h4 class="card-title"><strong>Alison Belmont</strong></h4>
-              <!-- Subtitle -->
-              <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
-              <!-- Text -->
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+            <div id="featureCards" class="row">
+              
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                <!-- Card Wider -->
+                <div class="card card-cascade wider">
 
-              <!-- Linkedin -->
-              <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-              <!-- Twitter -->
-              <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-              <!-- Dribbble -->
-              <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
+                  <!-- Card image -->
+                  <div class="view view-cascade overlay">
+                    <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
 
-            </div>
+                  <!-- Card content -->
+                  <div class="card-body card-body-cascade text-center">
 
-          </div>
-          <!-- Card Wider -->
-        </div>
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>Alison Belmont</strong></h4>
+                    <!-- Subtitle -->
+                    <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
+                    <!-- Text -->
+                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
 
-        <div class="col-4">
-          <!-- Card Wider -->
-          <div class="card card-cascade wider">
+                    <!-- Linkedin -->
+                    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
+                    <!-- Twitter -->
+                    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
+                    <!-- Dribbble -->
+                    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
-              <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
+                  </div>
 
-            <!-- Card content -->
-            <div class="card-body card-body-cascade text-center">
+                </div>
+                <!-- Card Wider -->
+              </div> <!-- /col-4 -->
 
-              <!-- Title -->
-              <h4 class="card-title"><strong>Alison Belmont</strong></h4>
-              <!-- Subtitle -->
-              <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
-              <!-- Text -->
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                <!-- Card Wider -->
+                <div class="card card-cascade wider">
 
-              <!-- Linkedin -->
-              <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-              <!-- Twitter -->
-              <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-              <!-- Dribbble -->
-              <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
+                  <!-- Card image -->
+                  <div class="view view-cascade overlay">
+                    <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
 
-            </div>
+                  <!-- Card content -->
+                  <div class="card-body card-body-cascade text-center">
 
-          </div>
-          <!-- Card Wider -->
-        </div>
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>Alison Belmont</strong></h4>
+                    <!-- Subtitle -->
+                    <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
+                    <!-- Text -->
+                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
 
-        <div class="col-4">
-          <!-- Card Wider -->
-          <div class="card card-cascade wider">
+                    <!-- Linkedin -->
+                    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
+                    <!-- Twitter -->
+                    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
+                    <!-- Dribbble -->
+                    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
-              <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
+                  </div>
 
-            <!-- Card content -->
-            <div class="card-body card-body-cascade text-center">
+                </div>
+                <!-- Card Wider -->
+              </div> <!-- /col-4 -->
 
-              <!-- Title -->
-              <h4 class="card-title"><strong>Alison Belmont</strong></h4>
-              <!-- Subtitle -->
-              <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
-              <!-- Text -->
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                <!-- Card Wider -->
+                <div class="card card-cascade wider">
 
-              <!-- Linkedin -->
-              <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-              <!-- Twitter -->
-              <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-              <!-- Dribbble -->
-              <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
+                  <!-- Card image -->
+                  <div class="view view-cascade overlay">
+                    <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
 
-            </div>
+                  <!-- Card content -->
+                  <div class="card-body card-body-cascade text-center">
 
-          </div>
-          <!-- Card Wider -->
-        </div>
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>Alison Belmont</strong></h4>
+                    <!-- Subtitle -->
+                    <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
+                    <!-- Text -->
+                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
 
+                    <!-- Linkedin -->
+                    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
+                    <!-- Twitter -->
+                    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
+                    <!-- Dribbble -->
+                    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 
+                  </div>
 
+                </div>
+                <!-- Card Wider -->
+              </div> <!-- /col-4 -->
 
-    </section> <!-- featured items section -->
+            </div> <!-- /row -->
+
+          </div> <!-- /jummboFeature -->
+          
+        </div> <!-- /col-12 -->
+     
+      </div> <!-- /row -->
+
+    </section> <!-- /featured items section -->
+
+<!-- ======================================================================= -->
+
+    <section id="newarrival-page"> <!-- new arrivals section -->
+
+      <div class="row">
+        
+        <div class="col-12">
+
+          <h3 id="jumbotronNew" class="jumbotron text-center m-0"> New Arrivals </h3>
+          <div id="bgJumboNew" class="jumbotron p-0 col-12">
+            
+            <!-- <div class="row"> -->
+              
+            <!-- </div> /row -->
+
+          </div> 
+
+        </div> <!-- /col-12 -->
+
+      </div> <!-- /row -->
+
+    </section> <!-- /new arrivals section -->
 
   </main>
   <!-- /Start your project here-->

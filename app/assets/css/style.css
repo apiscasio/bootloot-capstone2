@@ -6,8 +6,15 @@
 
 body {
 	/*background-color: #202020;*/
-	background-color: #1c2f2f;
-	color: floralwhite;
+	/*background-color: #1c2f2f;*/
+	color: gray;
+	overflow-x: hidden;
+}
+
+.container-fluid {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #landing-page {
@@ -16,29 +23,123 @@ body {
 }
 
 #logoJumbo {
-	height: 10vh;
+	height: 1vh !important;
 	background: transparent;
 	border: none;
 	box-shadow: none;
 	/*box-shadow: 0 0 5px rgba(255,255,255, 0.5);*/
 	color: floralwhite;
-	font-size: 38px;
+	font-size: 24px;
 	z-index: 500 !important;
 }
 
-#bgJumbo {
+#bgJumbo1 {
 	margin: 0 !important;
 	padding: 0 !important;
-	background-image: url("../images/bg1.jpg");
+	background-image: url("../images/bg2.jpg");
 	height: 100vh;
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: right;
-	/*margin-top: -20vh !important;*/
-	/*z-index: 1 !important;*/
+	width: 100%;
+	margin-top: -20vh !important;
+	z-index: 1 !important;
 	/*clip-path: polygon(15% 0%, 85% 0%, 65% 100%, 0% 100%);*/
+	position: relative;
+}
+
+#jumboText1-container {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	font-size: 38px;
+	font-weight: bolder;
+}
+
+#comfortText {
+	color: #ffcd58;
+}
+
+#bgJumbo2 {
+	margin: 0 !important;
+	padding: 0 !important;
+	background-image: url("../images/bg4.jpg");
+	height: 100vh;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: right;
+	width: 100%;
+	z-index: 1 !important;
+	/*clip-path: polygon(15% 0%, 85% 0%, 65% 100%, 0% 100%);*/
+	position: relative;
+}
+
+#jumboText2-container {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	font-size: 38px;
+	font-weight: bolder;
 }
 
 .navbar {
-	box-shadow: 0 0 20px rgba(0,0,0, 1);
+	box-shadow: 0 0 10px rgba(0,0,0, 1);
+}
+
+.col-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#feature-page {
+	height: 60vh;
+	width: 100vw;
+	margin: 0 auto;
+}
+
+#bgJumboFeature {
+	margin: 0 !important;
+	padding: 0 !important;
+	background-image: url("../images/bg3.jpg");
+	height: 65vh;
+	width: 100%;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: right;
+	z-index: 1 !important;
+	/*clip-path: polygon(15% 0%, 85% 0%, 65% 100%, 0% 100%);*/
+	float: left;
+	margin: 0 auto;
+	display: block;
+}
+
+#featureCards {
+	float: left;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	margin-top: 5vh;
+}
+
+#newarrival-page {
+	height: 100vh;
+	width: 100vw;
+	margin: 0 auto;
+	/*position: relative;*/
+	margin-top: 20vh;
+}
+
+#jumbotronNew {
+	display: block;
+	/*position: absolute;*/
+	margin: 0;
+}
+
+#bgJumboNew {
+	/*margin-top: 5vh;*/
+	padding: 0 !important;
+	background-image: url("../images/bg4.jpg");
+	height: 65vh;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
 }
