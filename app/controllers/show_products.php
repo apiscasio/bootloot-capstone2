@@ -8,14 +8,10 @@
 
 	$items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-	// var_dump(json_encode($rows));
-
 	if ($items) {
 		echo json_encode($items);
 	} else {
 		echo "";
 	}
-
-	mysqli_close($conn);
 
 ?>

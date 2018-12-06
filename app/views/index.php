@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>LANDING PAGE</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="../assets/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
+<?php 
+  $pageTitle = "Cop a Boot";
+  require_once("../partials/start_body.php") 
+?>
 
   <!-- Start your project here-->
   <main id="landing-page" class="container-fluid">
@@ -32,7 +17,15 @@
     <section class="row"> <!-- landing page section -->
 
       <div id="bgJumbo1" class="jumbotron p-0 m-0">
-        <div id="jumboText1-container">
+        <div data-animate-scroll='{  
+      "scaleX": "1.5",  
+      "scaleY": "1.5",  
+      "x": "-10",  
+      "y": "-10",  
+      "rotation": "-3",  
+      "alpha": "1",  
+      "easingType": "Cubic.easeOut",  
+      "duration": "1" }' id="jumboText1-container">
           <span id="comfortText" class="bgJumbo1Text"> Comfort </span>
           <span class="bgJumbo1Text"> and Style. </span>
           <p class="bgJumbo1Text"> UNITE.</p>
@@ -77,7 +70,7 @@
 
                   <!-- Card image -->
                   <div class="view view-cascade overlay">
-                    <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" alt="Card image cap">
                     <a href="#!">
                       <div class="mask rgba-white-slight"></div>
                     </a>
@@ -212,15 +205,4 @@
   </main>
   <!-- /Start your project here-->
 
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../assets/js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
-</body>
-
-</html>
+<?php require_once("../partials/end_body.php") ?>

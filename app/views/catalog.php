@@ -1,55 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  
+  $pageTitle = "Catalog Page";
+  require_once("../controllers/connect.php");
+  require("../controllers/show_products.php");
+  require("../controllers/get_categories.php");
+  require_once("../partials/start_body.php") 
+?>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>CATALOG PAGE</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="../assets/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
 
   <!-- Start your project here-->
-  <main id="landing-page" class="container-fluid">
+  <main id="catalog-page" class="catalog-page container-fluid">
 
     <div id="logoJumbo" class="jumbotron text-center m-0"> BOOTLOOT </div>
 
-    <!-- NAVBAR -->
-      <?php require_once("../partials/navbar.php") ?>
-    <!-- /NAVBAR -->
+  <!-- NAVBAR -->
+    <?php require_once("../partials/navbar.php") ?>
+  <!-- /NAVBAR -->
 
 <!-- ======================================================================= -->
-
-    <ul id="category-container" class="text-center"></ul>
     
-    <ul id="products-container" class="text-center"></ul>
+    <div class="container">
+      <div class="row my-5">
+
+          <!-- Search form -->
+            <div class="input-group mt-5 active-purple-4 mb-4">
+                <input id="search-form" class="form-control" name="search" type="text" placeholder="Search Product" aria-label="Search">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="search-icon"><i class="fa fa-search" aria-hidden="true"></i></i></span>
+                </div>
+            </div>
+
+          <div class="col-md-3">
+              
+            <ul id="category-container" class="list-group">
+              <li id="showAll" class="cat-item list-group-item"> Show All </li>
+                <?php foreach ($categories as $category): ?>
+                  <li id="<?php echo $category['id'] ?>" class="cat-item list-group-item"> <?php echo $category['name'] ?> </li>
+                <?php endforeach; ?>
+            </ul>
+          <!-- <ul id="products-container" class="text-center"></ul> -->
+
+          </div>
+
+          <div class="col-md-9">
+
+            <div id="products-container">
+                <div class="card-columns">
+                    <?php foreach ($items as $item): ?>
+                      <div class="card">
+                        <img class="card-img-top item-img-main" src="../../app/assets/images/items/<?php echo $item['image'] ?>" alt="card image cap">
+                        <div class="card-body">
+    
+                            <h5 class="card-title"> <a href="product.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?>  </a></h5>
+                            <p class="card-text">  &#8369; <?php echo number_format($item['price'], 2) ?> </p>
+                            <input type="number" class="form-control" value=1>
+                            <button data-id="<?php echo $item['id'] ?>" class="add-cart btn btn-sm btn-light"> Add to Cart </button>
+
+                        </div>
+                      </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
   </main>
   <!-- /Start your project here-->
 
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../assets/js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
-
-  <script type="text/javascript" src="../assets/js/get_categories.js"></script>
-  <script type="text/javascript" src="../assets/js/get_products.js"></script>
-  
-  <script type="text/javascript" src="../assets/js/script.js"></script>
-</body>
-
-</html>
+<?php require_once("../partials/end_body.php") ?>

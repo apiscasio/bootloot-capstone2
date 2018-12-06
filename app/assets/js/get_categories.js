@@ -10,14 +10,7 @@ $(document).ready(function() {
 
 	function showCategories(jsondata) {
 		if(jsondata !== "") {
-			const categories = JSON.parse(jsondata);
-
-			/*
-				[
-					{id: 1, name: "Category 1"},
-					{id: 2, name: "Category 2"}
-				]
-			*/
+			const categories = JSON.parse(jsondata);			
 
 			let listItems = ``;
 
