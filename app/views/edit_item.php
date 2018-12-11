@@ -2,9 +2,14 @@
   $pageTitle = "Edit Item";
   require_once("../partials/start_body.php"); 
   require_once("../controllers/connect.php");
-  require_once("../controllers/process_edit_item.php");
 
+	$id = $_GET['id'];
 
+	$sql = "SELECT * FROM items WHERE id= '$id'";
+
+	$item = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+
+	extract($item);
 ?>
 
   	<!-- Start your project here-->
@@ -20,7 +25,7 @@
 
 	<div class="col-lg-8 offset-lg-2">
 		<h1 class="text-center mt-5"> <?php echo $pageTitle ?> </h1>
-		<form enctype="multipart/form-data" method="POST" action="../controllers/process_edit_item.php" class="mt-5">
+		<form enctype="multipart/form-data" method="POST" action="../controllers/process_edit_item.php?id=<?php echo $id; ?>" class="mt-5">
 			<!-- enctype="multipart/form-data" sends data as files, not as $_POST data -->			
 			
 			<div class="form-group"> Item Name:
@@ -58,7 +63,7 @@
 			</div>
 
 			<div class="form-group"> Image:
-				<img src="../assets/images/items/<?php echo $item['image'] ?>">
+				<img class="img-edit-item img-fluid" src="../assets/images/items/<?php echo $item['image'] ?>">
 				<input class="form-control-file" type="file" name="image" value="<?php echo $item['image'] ?>">
 			</div>
 

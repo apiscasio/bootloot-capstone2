@@ -14,7 +14,8 @@ $(document).ready(function(){
 
 
 		let errors = 0;
-		if(username.length < 0 {
+
+		if(username.length < 1) {
 			$("#username").next().text("Please provide valid username");
 			errors++;
 		} else {
