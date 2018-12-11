@@ -13,6 +13,7 @@
   <script type="module" src="../assets/js/search_product.js"></script>
   <script type="text/javascript" src="../assets/js/update_cart.js"></script>
   <script type="text/javascript" src="../assets/js/create_user.js"></script>
+  <script type="text/javascript" src="../assets/js/update_user.js"></script>
 
 </body>
 

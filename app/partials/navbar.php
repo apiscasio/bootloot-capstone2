@@ -19,8 +19,15 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="catalog.php">Catalog</a>
+     <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Catalog</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownCatalogLink">
+          <a class="dropdown-item" href="../views/catalog.php">View Catalog</a>
+          <a class="dropdown-item" href="../views/addItem.php">Add Items</a>
+          <a class="dropdown-item" href="../views/items.php">Edit Items</a>
+        </div>
       </li>
 
       <form class="form-inline">
@@ -36,15 +43,15 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
               <?php if (!isset($_SESSION['user'])) : ?>
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false"><i class="fa fa-user fa-2x py-0" aria-hidden="true"></i>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownLoginLink">
                     <a class="dropdown-item <?php if($section == "login"){ echo "active"; } ?>" href="/csp2-ecommerce/app/views/login.php?section=login">Login
                     <a class="dropdown-item <?php if($section == "register"){ echo "active"; } ?>" href="/csp2-ecommerce/app/views/register.php?section=register">Register
                 </div>
               <?php else : ?>
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false"><i class="fa fa-user amber-text fa-2x py-0" aria-hidden="true"></i></a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="nav-link"> Welcome, <?php echo $_SESSION['user']['username']; ?> </a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownTrackOrdersLink">
+                    <a class="dropdown-item" href="../views/profile.php"> Welcome, <?php echo $_SESSION['user']['username']; ?> </a>
                     <a class="dropdown-item" href="#">Track My Orders</a>
                     <a id="logout" class="dropdown-item" href="../controllers/logout.php">Logout</a>
                 </div>
@@ -54,7 +61,7 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
             <a class="nav-link" href="catalog.php"> <!-- <i class="fa fa-heart fa-2x" aria-hidden="true"></i> --> <span id="likes-count" class="badge badge-pill badge-dark small"> 8 </span> Likes </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="catalog.php"> <!-- <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> --> 
+            <a class="nav-link" href="cart.php"> <!-- <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> --> 
               <span id="card-count" class="badge badge-pill badge-dark small"> 
                 <?php 
                   if (isset($_SESSION['cart'])) {
@@ -65,9 +72,6 @@ aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigat
                 ?> 
               </span> My Cart </a>
           </li>
-
-
-
 
     </ul>
     <!-- Links -->

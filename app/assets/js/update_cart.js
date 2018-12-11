@@ -1,7 +1,6 @@
 $(document).ready( function () {
 
 	
-
 	$(this).on("click", ".add-cart", function(e) {
 
 

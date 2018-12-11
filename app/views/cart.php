@@ -2,8 +2,6 @@
 $pageTitle = "Cart";
 require_once("../partials/start_body.php");
 
-
-
 ?>
 
 <?php require_once("../partials/navbar.php") ?>
@@ -27,19 +25,19 @@ require_once("../partials/start_body.php");
 						</thead>
 
 						<tbody>
-						<?php if(isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0): ?>
+						<?php if(isset($_SESSION['cart']) && count($_SESSION['cart']) != 0): ?>
 							<?php 
 							require_once("../controllers/connect.php");
 							$cart_total = 0;
-							foreach($_SESSION["cart"] as $id => $qty) {
+							foreach($_SESSION['cart'] as $id => $qty) {
 									$sql = "SELECT * FROM items WHERE id = '$id'";
 									$item_info = mysqli_query($conn, $sql);
 									$item = mysqli_fetch_assoc($item_info);
-									$subtotal = $_SESSION["cart"][$id] * $item["price"];
+									$subtotal = $_SESSION['cart'][$id] * $item['price'];
 									$cart_total += $subtotal; ?>
 							 <tr>
-							 	<td> <?php echo $item["item_name"] ?></td>
-							 	<td> <?php echo $item["price"] ?></td>
+							 	<td> <?php echo $item['name'] ?></td>
+							 	<td> <?php echo $item['price'] ?></td>
 							 	<td> <input type="number" class="form-control text-right" value="<?php echo $qty ?>" data-id="<?php echo $id ?>"> </td>
 							 	<td><?php echo $subtotal ?></td>
 							 	<td> <button class="btn btn-danger item-remove" data-id="<?php echo $id ?>"> Remove From Cart</button></td>
@@ -51,8 +49,19 @@ require_once("../partials/start_body.php");
 
 							  ?>
 
-						<?php endif; ?>
 						</tbody>
+
+						<tfoot>
+							<tr>
+								<td class="text-right font-weight-bold align-middle" colspan="3">Total:</td>
+								<td class="text-right font-weight-bold align-middle" id="total_price"><?php echo $cart_total; ?></td>
+								<td class="text-center align-middle">
+									<a href="checkout.php" class="btn btn-primary"> Proceed to checkout</a>
+								</td>
+							</tr>
+						</tfoot>
+
+						<?php endif; ?>
 						
 					</table>	
 				</div>
