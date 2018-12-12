@@ -17,7 +17,7 @@ $(document).ready( function () {
 			"type": "POST",
 			"success": function (dataFromController) {
 				console.log(dataFromController)
-				$("#card-count").text(dataFromController);
+				$("#cart-count").text(dataFromController);
 			}
 		});
 	});

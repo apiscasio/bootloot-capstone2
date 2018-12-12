@@ -1,6 +1,9 @@
 <?php 
   $pageTitle = "Edit Item";
-  require_once("../partials/start_body.php"); 
+  require_once("../partials/start_body.php");
+  if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['roles_id'] == 2)) {
+    header("Location: error.php");
+  }  
   require_once("../controllers/connect.php");
 
 	$id = $_GET['id'];

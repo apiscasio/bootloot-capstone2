@@ -1,6 +1,9 @@
 <?php 
 $pageTitle = "Cart";
 require_once("../partials/start_body.php");
+if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
+    header("Location: error.php");
+  }
 
 ?>
 
@@ -56,7 +59,7 @@ require_once("../partials/start_body.php");
 								<td class="text-right font-weight-bold align-middle" colspan="3">Total:</td>
 								<td class="text-right font-weight-bold align-middle" id="total_price"><?php echo $cart_total; ?></td>
 								<td class="text-center align-middle">
-									<a href="checkout.php" class="btn btn-primary"> Proceed to checkout</a>
+									<a href="checkout.php" class="btn btn-primary"> Proceed to Checkout</a>
 								</td>
 							</tr>
 						</tfoot>
@@ -69,7 +72,6 @@ require_once("../partials/start_body.php");
 		</section>	
 	</div>
 </main>
-
 
 
 <?php  require_once("../partials/end_body.php") ?>

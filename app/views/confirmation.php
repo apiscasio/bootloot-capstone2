@@ -2,6 +2,9 @@
 
 $pageTitle = "confirmation";
 require_once ("../partials/start_body.php");
+if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
+    header("Location: error.php");
+  }
 require_once ("../partials/navbar.php");
 
 

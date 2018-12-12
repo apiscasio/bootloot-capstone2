@@ -1,4 +1,5 @@
 <?php 
+
   $pageTitle = "Cop a Boot";
   require_once("../partials/start_body.php") 
 ?>

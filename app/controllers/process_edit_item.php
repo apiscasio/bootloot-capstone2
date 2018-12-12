@@ -3,6 +3,7 @@
 	require_once("connect.php");
 
 		$id = $_GET['id'];
+		
 		$new_name = $_POST['name'];
 		$new_price = $_POST['price'];
 		$new_description = $_POST['description'];

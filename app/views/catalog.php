@@ -4,14 +4,18 @@
   require_once("../controllers/connect.php");
   require("../controllers/show_products.php");
   require("../controllers/get_categories.php");
-  require_once("../partials/start_body.php") 
+  require_once("../partials/start_body.php");
+
+  if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
+    header("Location: error.php");
+  }
 ?>
 
 
   <!-- Start your project here-->
   <main id="catalog-page" class="catalog-page container-fluid">
 
-    <div id="logoJumbo" class="jumbotron text-center m-0"> BOOTLOOT </div>
+    <div id="logoJumbo" class="jumbotron text-center m-0"> Cop A Boot </div>
 
   <!-- NAVBAR -->
     <?php require_once("../partials/navbar.php") ?>
@@ -56,6 +60,9 @@
                             <input type="number" class="form-control" value=1>
                             <button data-id="<?php echo $item['id'] ?>" class="add-cart btn btn-sm btn-light"> Add to Cart </button>
 
+                            <!-- <a class="btn btn-info" onclick="toastr.info('Hi! I am info message.');"> </a>
+                            <a class="btn btn-info btn-lg" id="alert-target" >Click me!</a> -->
+                            
                         </div>
                       </div>
                     <?php endforeach; ?>
@@ -69,4 +76,4 @@
   </main>
   <!-- /Start your project here-->
 
-<?php require_once("../partials/end_body.php") ?>
+<?php require("../partials/end_body.php") ?>

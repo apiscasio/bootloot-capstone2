@@ -8,6 +8,7 @@
 	$lastname = htmlspecialchars($_POST["lastname"]);
 	$email = htmlspecialchars($_POST["email"]);
 	$address = htmlspecialchars($_POST["home-address"]);
+	$roles_id = 2; // user role
 
 	$sql = "SELECT * FROM users WHERE username = '$username'";
 	$result = mysqli_query($conn, $sql);
@@ -15,7 +16,7 @@
 	if(mysqli_num_rows($result) > 0 ) { //mysqli_num_rows counts num of rows / checks if theres an existing record
 		die("user exists");
 	} else {
-		$insert_query = "INSERT INTO users (username, password, first_name, last_name, email, home_address) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address')";
+		$insert_query = "INSERT INTO users (username, password, first_name, last_name, email, home_address, roles_id) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address', '$roles_id')";
 		$result = mysqli_query($conn, $insert_query);
 	}
 

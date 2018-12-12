@@ -13,7 +13,7 @@
 		<div class="container py-5">
 			<section class="row">
 				<div class="col">
-					<h1 class="text-center"> <img class="brand-logo img-fluid" width="50" height="50" src="../assets/images/brand-logo-1.png"> Register </h1>
+					<h1 class="text-center"> <img class="brand-logo img-fluid" width="50" height="50" src="#"> Register </h1>
 
 					<form>
 						<div class="form-row">

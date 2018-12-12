@@ -1,10 +1,11 @@
 <?php 
   $pageTitle = "Add Item";
-  require_once("../partials/start_body.php"); 
+  require_once("../partials/start_body.php");
+  if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['roles_id'] == 2)) {
+    header("Location: error.php");
+  } 
   require_once("../controllers/connect.php");
-   require("../controllers/show_products.php");
-
-
+  require("../controllers/show_products.php");
 ?>
 
   	<!-- Start your project here-->
@@ -29,7 +30,7 @@
                 </div>
             </div> -->
             <div>
-	            <a href="../views/addItem.php"><button class="btn btn-primary mt-2"> Add Item </button></a>
+	            <button class="btn btn-primary mt-2" href="addItem.php"> Add Item </button>
             </div>
 
           <div class="col-md-9">
@@ -44,24 +45,13 @@
                             <h5 class="card-title"> <a href="product.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?>  </a></h5>
                             <p class="card-text">  &#8369; <?php echo number_format($item['price'], 2) ?> </p>
                             <input type="number" class="form-control" value=1>
-
-
-                            <div class="card-footer">
-                              
-                              <a href="../views/edit_item.php?id=<?php echo $item['id'] ?>"><button data-id="<?php echo $item['id'] ?>" class="edit-item btn btn-sm btn-warning"> Edit Item </button></a>
-
-                              <form method="POST" action="../controllers/delete_item.php?id=<?php echo $item['id'] ?>">
-                                
-                                <button name="delete" class="delete-item btn btn-sm btn-danger"> Delete Item </button>
-
-                              </form>
-
-                            </div>
-
+                            <button data-id="<?php echo $item['id'] ?>" class="edit-item btn btn-sm btn-warning"> Edit Item </button>
+                            <button data-id="<?php echo $item['id'] ?>" class="delete-item btn btn-sm btn-danger" href="../controllers/delete_item.php?id=$id"> Delete Item </button>
 
                         </div>
                       </div>
                     <?php endforeach; ?>
+                    
                 </div>
             </div>
 

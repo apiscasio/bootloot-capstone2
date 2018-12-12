@@ -34,36 +34,6 @@
 		//   </div>
 		// </div>";
 
-		<?php if ($modal==true) { ?>
- 
-<script>
-$(function() {
-$("#myModal").modal();//if you want you can have a timeout to hide the window after x seconds
-});
-</script>
- 
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
- 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Sample modal window</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
- 
-    </div>
-  </div>
- 
-<?php } ?>
 
 	} else {
 		echo "You don't have permission to access this page.";
