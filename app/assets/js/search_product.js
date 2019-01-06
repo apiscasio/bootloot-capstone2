@@ -1,16 +1,18 @@
 
-import { displayCardItems, listCardItems } from "./function_templates.js";
+import { displayCardItems, listCardItems } from "../js/function_templates.js";
 
 $(document).ready(function() {
 
 	const searchForm = $("#search-form");
 
+	console.log(searchForm);
+
 	searchForm.keypress( function(e) {
 		// 13 is keycode for enter key
 		if(e.which == 13) {
 			$.ajax({
-				"url": "../controllers/search_product.php",
-				"type": "POST",
+				"url": "../../controllers/search_product.php",
+				"type": "GET",
 				"data": {
 					"search": searchForm.val()
 				},

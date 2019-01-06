@@ -4,15 +4,15 @@
 
 	$id = $_GET['id'];
 
-	$get_user_query = "SELECT roles_id FROM users WHERE id = $id";
+	$get_user_query = "SELECT role_id FROM users WHERE id = $id";
 	
 	$user_to_edit = mysqli_query($conn, $get_user_query);
 	$user = mysqli_fetch_assoc($user_to_edit);
 
-	if ($user['roles_id'] == 2) {
-		$update_role_query = "UPDATE users SET roles_id = 1 WHERE id = $id";
+	if ($user['role_id'] == 2) {
+		$update_role_query = "UPDATE users SET role_id = 1 WHERE id = $id";
 	} else {
-		$update_role_query = "UPDATE users SET roles_id = 2 WHERE id = $id";
+		$update_role_query = "UPDATE users SET role_id = 2 WHERE id = $id";
 	}
 
 	$result = mysqli_query ($conn, $update_role_query);

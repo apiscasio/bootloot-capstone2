@@ -1,86 +1,90 @@
 <?php
 
 	$pageTitle = "Product Information";
-	require_once("../controllers/connect.php");
-	require_once("../controllers/get_product.php");
-	require_once("../controllers/get_categories.php");
+	require("../controllers/connect.php");
+	// require_once("../controllers/get_categories.php");
   require_once("../partials/start_body.php"); 
 
-  extract($product);
+  // extract(var_array)act($product);
   
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title> <?php echo $pageTitle ?> </title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="../assets/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="../assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-	<!-- Start your project here-->
-	  <main id="landing-page" class="container-fluid">
-
-	    <div id="logoJumbo" class="jumbotron text-center m-0"> BOOTLOOT </div>
-
+  <main id="product-page" role="main">
 	    <!-- NAVBAR -->
-	      <?php require_once("../partials/navbar.php") ?>
+	      <?php require_once("../partials/navbar1.php") ?>
 	    <!-- /NAVBAR -->
 
-	<main id="main" role="main">
-
-    <div class="container">
+    <div class="container" id="productPage-container">
       <div class="row my-5">
-          <div class="col-md-3">
-              
-            <ul id="category-container" class="list-group">
-              <li id="showAll" class="cat-item list-group-item"> Show All </li>
-                <?php foreach ($categories as $category): ?>
-                  <li id="<?php echo $category['id'] ?>" class="cat-item list-group-item"> <?php echo $category['name'] ?> </li>
-                <?php endforeach; ?>
-            </ul>
-          <!-- <ul id="products-container" class="text-center"></ul> -->
-
-          </div>
+          
+          <?php require_once("../partials/categories.php") ?>
 
           <div class="col-md-9">
+            <?php
+              if(isset($_GET['search'])) {
 
+                $searchVal = $_GET['search'];
+
+                $sql = "SELECT * FROM items WHERE name LIKE '%$searchVal%' OR description LIKE '%$searchVal%'";
+
+                $result = mysqli_query($conn, $sql);
+
+                if($result !== null) {
+            ?>
             <div id="products-container">
 
-                    <?php if($product !== null) : ?>
+              <?php echo "<div class='chip chip-lg blue-gradient white-text mb-3'> $searchVal </div>" ?>
 
-                        <img class="card-img-top item-img-main" src="../assets/images/items/<?php echo $image ?>" alt="card image cap">
-                        <div class="card-body">
-    
-                            <h3 class="card-title"> <a href="product.php?id=<?php echo $id ?>"> <?php echo $name ?>  </a></h3>
-                            <h6> <?php echo $description ?> </h6>
-                            <p class="card-text">  &#8369; <?php echo number_format($price, 2) ?> </p>
-                            <a href="" class="btn btn-sm btn-light"> Add to Cart </a>
+              <div class="card-columns">
+              <?php foreach ($result as $product) { ?>
+                <div class="card">
+                  <img class="card-img-top item-img-main" src="../assets/images/items/<?php echo $product['image'] ?>" alt="card image cap">
+                  <div class="card-body">
 
-                        </div>
-                      </div>
-                   <?php else: ?>
-                    <h1> Product Not Found </h1>
-                  <?php endif; ?>
+                      <h3 class="card-title"> <a href="product.php?id=<?php echo $product['id'] ?>"> <?php echo $product['name'] ?>  </a></h3>
+                      <h6> <?php echo $product['description'] ?> </h6>
+                      <p class="card-text">  &#8369; <?php echo number_format($product['price'], 2) ?> </p>
+                      <a href="" class="btn btn-blue-grey"> Add to Cart </a>
+                  </div>
                 </div>
+              <?php } ?>
             </div>
+          <?php
+                } else { 
+                  $searchVal = NULL;
+                }
+              } 
 
-          </div>
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+              $prod_id = htmlspecialchars($_GET['id']);
+
+              $sql = "SELECT * FROM items where id = '$prod_id'";
+
+              $result = mysqli_query($conn, $sql);
+
+              foreach ($result as $product) { 
+          ?>
+                <div class="card">
+                  <img class="card-img-top item-img-main" src="../assets/images/items/<?php echo $product['image'] ?>" alt="card image cap">
+                  <div class="card-body">
+                      <h3 class="card-title"> <a href="product.php?id=<?php echo $product['id'] ?>"> <?php echo $product['name'] ?>  </a></h3>
+                      <h6> <?php echo $product['description'] ?> </h6>
+                      <p class="card-text">  &#8369; <?php echo number_format($product['price'], 2) ?> </p>
+                      <a href="" class="btn btn-blue-grey"> Add to Cart </a>
+                  </div>
+                </div>
+          <?php
+                } 
+              } else {
+                $prod_id = NULL;
+              }
+                  // mysqli_close($conn);
+          ?>
         </div>
       </div>
-
-
+    </div>
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">Top</button>
 	</main>
 
-<?php require_once("../partials/end_body.php") ?>
+<?php require_once("../partials/footer.php"); ?>
+<?php require_once("../partials/end_body.php"); ?>

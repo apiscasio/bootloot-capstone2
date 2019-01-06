@@ -12,11 +12,10 @@
 
 	if($filteredByCategories) {
 		echo json_encode($filteredByCategories);
-
 	} else {
 		echo "";
 	}
 
-	mysqli_close($conn);
+	// mysqli_close($conn);
 
 ?>

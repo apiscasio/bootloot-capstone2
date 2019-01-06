@@ -1,22 +1,25 @@
-/*toastr.options = {
-    "closeButton": true, // true/false
-    "debug": false, // true/false
-    "newestOnTop": false, // true/false
-    "progressBar": false, // true/false
-    "positionClass": "toast-top-right", // toast-top-right / toast-top-left / toast-bottom-right / toast-bottom-left
-    "preventDuplicates": false, //true/false
-    "onclick": null,
-    "showDuration": "300", // in milliseconds
-    "hideDuration": "1000", // in milliseconds
-    "timeOut": "5000", // in milliseconds
-    "extendedTimeOut": "1000", // in milliseconds
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
+$('#brandSelect').change(function() {
+    if($(this).val() == 99999)
+        $('#newBrand').show();
+    else
+        $('#newBrand').hide();
+});
 
-$("#alert-target").click(function () {
+$('#sizeSelect').change(function() {
+
+	for (var i = 6; i <= 13; i += 0.5) {
+		if ($(this).val() >= 6 || $(this).val <= 13)
+	        $('#qtyInput').show();
+	    else
+	        $('#qtyInput').hide();
+	}
+});
+
+
+$("#addStock-alert").click(function () {
     toastr["info"]("I was launched via jQuery!")
 });
-*/
+
+
+
+

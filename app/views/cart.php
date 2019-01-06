@@ -1,22 +1,31 @@
 <?php 
 $pageTitle = "Cart";
 require_once("../partials/start_body.php");
-if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
+require_once("../controllers/connect.php");
+
+if (isset($_SESSION['user']) && ($_SESSION['user']['role_id'] == 1)) {
     header("Location: error.php");
   }
 
 ?>
 
-<?php require_once("../partials/navbar.php") ?>
+<?php require_once("../partials/navbar1.php") ?>
 
-<main id="main">
-	<div class="container py-5">
+<main class="container" id="cart-page">
+	<div class="container" id="cart-container">
 		<section class="row">
 			<div class="col">
-				<h1 class="text-center"> My Cart </h1>
+				<h3 class="mt-5 mb-5"> My Cart </h3>
 
 				<div class="table-responsive">
 					<table id="cart-items" class="table table-striped table-bordered">
+						<?php if(isset($_SESSION['cart']) && (count($_SESSION['cart']) == 0 || count($_SESSION['cart']) == null)) {  ?>
+						
+							<h5>Your Shopping Cart is Empty</h5>
+							<a type="button" class="btn btn-blue-grey mt-2 mb-5" href="catalog.php">Back to Shopping</a>
+
+						<?php } else if (isset($_SESSION['cart']) && count($_SESSION['cart']) != 0) { count($_SESSION['cart']); ?>
+			
 						<thead>
 							<tr class="text-center">
 								<th>Item Name</th>
@@ -28,14 +37,14 @@ if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
 						</thead>
 
 						<tbody>
-						<?php if(isset($_SESSION['cart']) && count($_SESSION['cart']) != 0): ?>
+
 							<?php 
 							require_once("../controllers/connect.php");
 							$cart_total = 0;
 							foreach($_SESSION['cart'] as $id => $qty) {
 									$sql = "SELECT * FROM items WHERE id = '$id'";
-									$item_info = mysqli_query($conn, $sql);
-									$item = mysqli_fetch_assoc($item_info);
+									$info = mysqli_query($conn, $sql);
+									$item = mysqli_fetch_assoc($info);
 									$subtotal = $_SESSION['cart'][$id] * $item['price'];
 									$cart_total += $subtotal; ?>
 							 <tr>
@@ -59,19 +68,21 @@ if (isset($_SESSION['user']) && ($_SESSION['user']['roles_id'] == 1)) {
 								<td class="text-right font-weight-bold align-middle" colspan="3">Total:</td>
 								<td class="text-right font-weight-bold align-middle" id="total_price"><?php echo $cart_total; ?></td>
 								<td class="text-center align-middle">
-									<a href="checkout.php" class="btn btn-primary"> Proceed to Checkout</a>
+									<a href="checkout.php" class="btn btn-blue-grey"> Proceed to Checkout</a>
 								</td>
 							</tr>
 						</tfoot>
 
-						<?php endif; ?>
+						<?php } ?>
 						
 					</table>	
 				</div>
 			</div>
 		</section>	
 	</div>
+	<button onclick="topFunction()" id="backToTopBtn" title="Go to top">Top</button>
 </main>
 
 
+<?php require_once("../partials/footer.php"); ?>
 <?php  require_once("../partials/end_body.php") ?>

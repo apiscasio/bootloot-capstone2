@@ -36,13 +36,6 @@ $(document).ready(function(){
 			$("#lastname").next().text("");
 		}
 
-		// if(email.includes("@")) {
-		// 	$("#email").next().text("Please provide valid email");
-		// 	errors++;
-		// } else {
-		// 	$("#email").next().text("");
-		// }
-
 		if(address.length == 0) {
 			$("#address").next().text("Please provide valid address");
 			errors++;
@@ -57,7 +50,6 @@ $(document).ready(function(){
 			$("#confirm_password").next().text("");
 		}
 
-
 		if(old_password == new_password) {
 			$("#confirm_password").next().text("new passwords can't be the same as old password");
 			errors++;
@@ -71,9 +63,6 @@ $(document).ready(function(){
 		}
 
 	}
-
-
-
 
 $("#update_user").on("click", function(){
 	

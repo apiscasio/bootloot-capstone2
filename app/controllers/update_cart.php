@@ -5,13 +5,6 @@
 		return array_sum($_SESSION['cart']);
 	}
 
-	/*
-		$_SESSION['cart'] = [
-				1 => 10,
-				2 => 0,
-		]
-	*/
-
 	$item_id = htmlspecialchars($_POST['item_id']);
 	$item_quantity = htmlspecialchars($_POST['item_quantity']);
 

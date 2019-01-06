@@ -104,7 +104,15 @@ $(document).ready(function() {
 					if (jsondata == "user exists") {
 						username.next().text("Username already exists");
 					} else {
-						$("#main").html(`<h1> You have successfully registered </h1>`);
+						$("#main").html(`
+										<div class="container>
+			
+											<h2 class="mt-5 mb-5 pt-5"> User Created Successfully </h2>
+
+											<a class="btn btn-blue-grey my-3" type="button" href="../views/login.php"> Sign in to start shopping </a>
+
+										</div>
+										`);
 					}
 				}
 			});

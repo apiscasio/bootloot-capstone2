@@ -4,7 +4,6 @@
 
 	$status = $_GET['status'];
 
-
 	if ($status == "Completed") {
 
 		$update_order_query = "UPDATE orders SET status_id = 2 WHERE id = $id";

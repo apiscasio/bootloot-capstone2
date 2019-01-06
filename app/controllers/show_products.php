@@ -1,5 +1,6 @@
 <?php
-
+	// session_start();
+	
 	require_once("connect.php");
 
 	$sql = "SELECT * FROM items";
@@ -8,10 +9,10 @@
 
 	$items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-	if ($items) {
-		echo json_encode($items);
-	} else {
-		echo "";
-	}
+	// if ($items1) {
+	// 	echo json_encode($items1);
+	// } else {
+	// 	echo "";
+	// }
 
 ?>
